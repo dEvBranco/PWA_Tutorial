@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v2'; // every time we change site add a new version
-const dynamicCacheName = 'site-dynamic-v1';
+const staticCacheName = 'site-static-v3'; // every time we change site add a new version
+const dynamicCacheName = 'site-dynamic-v2';
 
 const assets = [
     '/',
@@ -53,21 +53,22 @@ self.addEventListener('activate', evt => {
 
 // fetch event
 self.addEventListener('fetch', evt => {
-    //console.log('fetch event', evt);
-    //evt.respondWith(
-    //    caches.match(evt.request).then(cacheResponse => {
-    //        return cacheResponse || fetch(evt.request).then(fetchResponse => {
-    //            return caches.open(dynamicCacheName).then(cache => {
-    //                cache.put(evt.request.url, fetchResponse.clone());
-    //                limitCacheSize(dynamicCacheName, 15); // never more than 15
-    //                return fetchResponse;
-    //            });
-    //        });
-    //    }).catch(() => {
-    //        if(evt.request.url.indexOf('.html') > -1){
-    //        return caches.match('/pages/fallback.html');
-    //        }
-    //    })
-    //);
+    if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
+    evt.respondWith(
+        caches.match(evt.request).then(cacheResponse => {
+            return cacheResponse || fetch(evt.request).then(fetchResponse => {
+                return caches.open(dynamicCacheName).then(cache => {
+                    cache.put(evt.request.url, fetchResponse.clone());
+                    limitCacheSize(dynamicCacheName, 15); // never more than 15
+                    return fetchResponse;
+                });
+            });
+        }).catch(() => {
+            if(evt.request.url.indexOf('.html') > -1){
+            return caches.match('/pages/fallback.html');
+            }
+        })
+        );
+    }
 });
 
