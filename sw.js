@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v3'; // every time we change site add a new version
-const dynamicCacheName = 'site-dynamic-v2';
+const staticCacheName = 'site-static-v7'; // every time we change site add a new version
+const dynamicCacheName = 'site-dynamic-v10';
 
 const assets = [
     '/',
