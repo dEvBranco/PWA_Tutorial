@@ -1,0 +1,25 @@
+Portfowarding alternative:
+
+To solve Port Forwarding step on Chrome 87. 
+Wipe Data of your Pixel 2 virtual device.
+1.	Close your virtual device.
+2.	Go to the list of devices in your Android Virtual Manager.
+3.	Right-click on the device you want to restore the data.
+4.	A dropdown menu will appear which lists: Duplicate, Wipe Data, Cold Boot Now, etc.
+5.	Select Wipe Data.
+6.	This will clear all residual data from your virtual device and set it back to the state it was originally created.
+7.	Here is the URL to the formal description: https://developer.android.com/studio/run/managing-avds#emulator
+
+Go to your Chrome browser: Copy and paste the following url in your Chrome Browser chrome://inspect/#devices 
+1.	Click the Port forwarding … button 
+2.	A Port forward settings window will pop-up.
+3.	In the field Port, type in:  5500 
+4.	In the field IP address and port, type in:  localhost:5500
+5.	At the bottom of the window lick the checkbox: Enable port forwarding 
+6.	Hit the Done button.
+7.	Note: A message will appear at the top of the browser: 
+a.	Port forwarding active. Closing this page terminates it. 
+b.	Leave the page open for the tutorial.
+8.	Follow the rest of the instructions from Net Ninja related to go to localhost:5500 in the Chrome browser in the virtual device.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
