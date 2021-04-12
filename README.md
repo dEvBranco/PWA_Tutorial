@@ -1,4 +1,4 @@
-# PWA_Tutorial
-First WebApp
+# WebApp project
 
-Training project
+## Recipe app
+
